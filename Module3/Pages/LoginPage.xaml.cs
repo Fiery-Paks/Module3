@@ -21,27 +21,31 @@ namespace Module3.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
-        private ModelEF db { get; set; }
+        private ModelEF model { get; set; }
         public LoginPage()
         {
             InitializeComponent();
-            db = new ModelEF();
+            model = new ModelEF();
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string login = LoginTextBox.Text;
             string password = PasswordBox.Password;
 
-            // Здесь должна быть логика проверки введенных данных
             Accounts accounts = IsValidCredentials(login, password);
             if (accounts != null)
             {
                 switch (accounts.RoleID)
                 {
                     case 1:
-                        this.NavigationService.Navigate(new AdminPage());
+                        this.NavigationService.Navigate(new AdminPage(model));
                         break;
                     case 2:
+                        if ((bool)accounts.NewUser)
+                        {
+                            this.NavigationService.Navigate(new FirstAuthorization(model, accounts));
+                            break;
+                        }
                         this.NavigationService.Navigate(new UserPage());
                         break;
                     default:
@@ -53,12 +57,19 @@ namespace Module3.Pages
 
         private int GetDateInterval(DateTime lastautorizaation)
         {
-            return Math.Abs((lastautorizaation - DateTime.Now).Days);
+            return (DateTime.Now - lastautorizaation).Days;
         }
         private void BlockAccount(Accounts account)
         {
             account.StatusID = 2;
-            db.SaveChanges();
+            try
+            {
+                model.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             MessageBox.Show("Вы заблокированы. Обратитесь к администратору");
         }
         private void AddTryBadLogin(Accounts account)
@@ -75,7 +86,10 @@ namespace Module3.Pages
         private Accounts IsValidUser(string login, string password)
         {
             Accounts accounts = null;
-            accounts = db.Accounts.First(x => x.Login == login && x.Password == password);
+            accounts = model.Accounts.First(x => x.Login == login && x.Password == password);
+
+            if (accounts.RoleID == 1 && accounts.StatusID != 2)
+                return accounts;
 
             if (accounts != null)
             {
@@ -92,7 +106,7 @@ namespace Module3.Pages
                 return accounts;
             }
 
-            accounts = db.Accounts.First(x => x.Login == login);
+            accounts = model.Accounts.First(x => x.Login == login);
 
             if (accounts != null)
             {

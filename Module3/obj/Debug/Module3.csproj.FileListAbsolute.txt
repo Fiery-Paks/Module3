@@ -26,3 +26,7 @@ C:\Users\Паокин\Desktop\РКИС\NewLR\Module3\Module3\obj\Debug\Pages\Adm
 C:\Users\Паокин\Desktop\РКИС\NewLR\Module3\Module3\obj\Debug\Pages\LoginPage.baml
 C:\Users\Паокин\Desktop\РКИС\NewLR\Module3\Module3\obj\Debug\Pages\UserPage.baml
 C:\Users\Паокин\Desktop\РКИС\NewLR\Module3\Module3\obj\Debug\Module3.csproj.CopyComplete
+C:\Users\Паокин\Desktop\РКИС\NewLR\Module3\Module3\obj\Debug\Pages\AddUpdatePage.g.cs
+C:\Users\Паокин\Desktop\РКИС\NewLR\Module3\Module3\obj\Debug\Pages\FirstAuthorization.g.cs
+C:\Users\Паокин\Desktop\РКИС\NewLR\Module3\Module3\obj\Debug\Pages\AddUpdatePage.baml
+C:\Users\Паокин\Desktop\РКИС\NewLR\Module3\Module3\obj\Debug\Pages\FirstAuthorization.baml

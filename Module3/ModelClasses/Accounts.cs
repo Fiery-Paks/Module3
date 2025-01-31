@@ -30,7 +30,9 @@ namespace Module3.ModelClasses
 
         public int StatusID { get; set; }
 
-        public int BadLoginTry { get; set; }
+        public int? BadLoginTry { get; set; }
+
+        public bool? NewUser { get; set; }
 
         public virtual Roles Roles { get; set; }
 

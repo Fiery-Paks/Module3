@@ -7,8 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800" MinHeight="450" MinWidth="800"
       Title="LoginPage">
+
     <Grid Background="White">
-        <Grid HorizontalAlignment="Center" Margin="0,45,0,0">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -17,7 +18,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Страница авторизации" Margin="0,5,0,100" FontSize="30"/>
+            <Label Grid.Row="0" Content="Авторизация" Margin="0,5,0,70" FontSize="30" HorizontalAlignment="Center"/>
 
             <TextBlock Grid.Row="1" Text="Логин:" TextAlignment="Center"/>
             <TextBox Grid.Row="2" x:Name="LoginTextBox" Margin="0,5,0,15" FontSize="16" TextAlignment="Center"/>

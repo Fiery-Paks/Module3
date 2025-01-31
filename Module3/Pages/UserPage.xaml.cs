@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Module3.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для UserPage.xaml
+    /// Логика взаимодействия для AdminPage.xaml
     /// </summary>
     public partial class UserPage : Page
     {

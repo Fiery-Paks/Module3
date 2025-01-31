@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Module3.HelperClasses;
+using Module3.ModelClasses;
 
 namespace Module3.Pages
 {
@@ -20,9 +22,24 @@ namespace Module3.Pages
     /// </summary>
     public partial class AdminPage : Page
     {
-        public AdminPage()
+        private ModelEF model { get; set; }
+        public AdminPage(ModelEF _model)
         {
             InitializeComponent();
+            model = _model;
+
+        }
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AddUpdateAccountsPage(model, TypePage.Add));
+        }
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
