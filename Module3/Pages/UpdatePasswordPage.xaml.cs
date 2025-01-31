@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Module3.ModelClasses;
 
 namespace Module3.Pages
@@ -19,11 +8,11 @@ namespace Module3.Pages
     /// <summary>
     /// Логика взаимодействия для UserPage.xaml
     /// </summary>
-    public partial class FirstAuthorization : Page
+    public partial class UpdatePasswordPage : Page
     {
         private Accounts account { get; set; }
         private ModelEF model { get; set; }
-        public FirstAuthorization(ModelEF _model, Accounts _account)
+        public UpdatePasswordPage(ModelEF _model, Accounts _account)
         {
             InitializeComponent();
             account = _account;
@@ -37,6 +26,7 @@ namespace Module3.Pages
             if (IsValidData(psbox1text, psbox2text))
             {
                 account.Password = psbox1text;
+                account.NewUser = false;
                 try
                 {
                     model.SaveChanges();
@@ -45,6 +35,7 @@ namespace Module3.Pages
                 {
                     MessageBox.Show(ex.Message);
                 }
+                MessageBox.Show("Пароль успешно изменён");
                 this.NavigationService.Navigate(new UserPage());
             }
         }

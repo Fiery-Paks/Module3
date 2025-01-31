@@ -8,7 +8,7 @@ namespace Module3.ModelClasses
 
     public partial class Accounts
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         [Required]

@@ -80,7 +80,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\FirstAuthorization.xaml">
+    <Page Include="Pages\UpdatePasswordPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,8 +109,8 @@
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FirstAuthorization.xaml.cs">
-      <DependentUpon>FirstAuthorization.xaml</DependentUpon>
+    <Compile Include="Pages\UpdatePasswordPage.xaml.cs">
+      <DependentUpon>UpdatePasswordPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
